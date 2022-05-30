@@ -15,18 +15,40 @@ def user_details():
     print()
     game_choice()
 
-user_details()
-
 
 def game_choice():
     """
     Here we are going to ask the user to input a number
-    between 1 and 3. 
-    The computer will randomize a number between 1 and 3. 
-    Then we will compare the two numbers to see if they 
-    are the same or different. 
+    between 1 and 3.
+    The computer will randomize a number between 1 and 3.
+    Then we will compare the two numbers to see if they
+    are the same or different.
     """
+    player_score = 0
+    comp_score = 0
+    while True:
+        try:
+            user_choice = int(input("Choose a number between 1 and 3: "))
+            while user_choice != 1 or user_choice != 2 or user_choice != 3:
+                if user_choice == 1 or user_choice == 2 or user_choice == 3:
+                    break
+                else:
+                    raise ValueError
+        except ValueError:
+            print("Please enter a valid number")
+            user_choice = int(input("Choose a number between 1 and 3: "))
+            while user_choice != 1 or user_choice != 2 or user_choice != 3:
+                if user_choice == 1 or user_choice == 2 or user_choice == 3:
+                    break
+                else:
+                    print("Please enter a number between 1 and 3.")
+                    user_choice = int(input("\
+Choose a number between 1 and 3: "))
 
+        computer_guess = random.randint(1, 3)
+        print(f"The computer chose: {computer_guess}\n")
+
+       
 
 def finalgame(player_score, comp_score):
     """
