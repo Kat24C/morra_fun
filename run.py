@@ -44,10 +44,27 @@ def game_choice():
                     print("Please enter a number between 1 and 3.")
                     user_choice = int(input("\
 Choose a number between 1 and 3: "))
-
         computer_guess = random.randint(1, 3)
         print(f"The computer chose: {computer_guess}\n")
-
+        try:
+            user_guess = int(input("Guess the computers number 1, 2 or 3: "))
+            while user_guess != 1 or user_guess != 2 or user_guess != 3:
+                if user_guess == 1 or user_guess == 2 or user_guess == 3:
+                    break
+                else:
+                    raise ValueError
+        except ValueError:
+            print("Please enter a valid number")
+            user_guess = int(input("Guess the computers number 1, 2, 3: "))
+            while user_guess != 1 or user_guess != 2 or user_guess != 3:
+                if user_guess == 1 or user_guess == 2 or user_guess == 3:
+                    break
+                else:
+                    print("Please enter a number between 1 and 3: ")
+                    user_guess = int(input("\
+Guess the computers number 1, 2, 3: "))
+        computer_choice = random.randint(1, 3)
+        print(f"The computer chose: {computer_choice}\n")
 
         if user_guess == computer_choice:
             user_score = user_guess + computer_choice
@@ -81,6 +98,22 @@ def finalgame(player_score, comp_score):
         play_again()
     else:
         return True
+
+
+def play_again():
+    """
+    Asks the user if they would like to restart the game.
+    """
+    play_more = input("Would you like to play again? Yes/No: ").lower()
+    if play_more == "yes":
+        print("Fantastic lets play again.")
+        print()
+        game_choice()
+    elif play_more == "no":
+        quit()
+    else:
+        print("Invalid option")
+        play_again()
 
 
 user_details()
