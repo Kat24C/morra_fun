@@ -6,6 +6,16 @@ def user_details():
     The user enter his/her name
     As well as a breakdown of the rules of the game.
     """
+    name = (input("What is your name? \n")).strip()
+    print(f"Hello,{name} are you ready to play a game of morra.")
+    print("In this game you need to guess the computers number.")
+    print("While the computer guesses your number.")
+    print("You have to choose between 1, 2 and 3. ")
+    print('The first person to reach 12 wins.')
+    print()
+    game_choice()
+
+user_details()
 
 
 def game_choice():
@@ -33,4 +43,3 @@ def play_again():
     """
 
 
-game_choice()
