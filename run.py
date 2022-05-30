@@ -33,7 +33,7 @@ def game_choice():
                 if user_choice == 1 or user_choice == 2 or user_choice == 3:
                     break
                 else:
-                    raise ValueError
+                    print("Please enter a valid number")
         except ValueError:
             print("Please enter a valid number")
             user_choice = int(input("Choose a number between 1 and 3: "))
@@ -48,20 +48,25 @@ Choose a number between 1 and 3: "))
         computer_guess = random.randint(1, 3)
         print(f"The computer chose: {computer_guess}\n")
 
-       
 
-def finalgame(player_score, comp_score):
-    """
-    Here we will compare the scores and see if the game continues.
-    It will see if the computer or user has scored 12 or more.
-    It will declare a winner once user or computer score 12.
-    """
+        if user_guess == computer_choice:
+            user_score = user_guess + computer_choice
+            print(f"Well done, You got {user_score}")
+            player_score = player_score + user_score
+            print(f"Your total is {player_score}\n")
+        else:
+            print("Oh dear, try again you got 0")
+            print(f"Your total is {player_score}")
+
+        if user_choice == computer_guess:
+            computer_score = user_choice + computer_guess
+            print(f"The computer got {computer_score}")
+            comp_score = comp_score + computer_score
+            print(f"The computer's total is {comp_score}\n")
+        else:
+            print("The computer got 0")
+            print(f"The computer's total is {comp_score}\n")
+            finalgame(player_score, comp_score)
 
 
-def play_again():
-    """
-    Asks the user if they would like to restart the game.
-    The user will have the option to restart or end the game. 
-    """
-
-
+user_details()
