@@ -69,4 +69,18 @@ Choose a number between 1 and 3: "))
             finalgame(player_score, comp_score)
 
 
+def finalgame(player_score, comp_score):
+    """
+    This will decide if the game continues
+    """
+    if player_score >= 12:
+        print("Congratulations you win :)")
+        play_again()
+    elif comp_score >= 12:
+        print("Sorry the computer won :(")
+        play_again()
+    else:
+        return True
+
+
 user_details()
