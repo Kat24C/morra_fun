@@ -33,7 +33,7 @@ def game_choice():
                 if user_choice == 1 or user_choice == 2 or user_choice == 3:
                     break
                 else:
-                    print("Please enter a valid number")
+                    raise ValueError()
         except ValueError:
             print("Please enter a valid number")
             user_choice = int(input("Choose a number between 1 and 3: "))
@@ -52,7 +52,7 @@ Choose a number between 1 and 3: "))
                 if user_guess == 1 or user_guess == 2 or user_guess == 3:
                     break
                 else:
-                    raise ValueError
+                    raise ValueError()
         except ValueError:
             print("Please enter a valid number")
             user_guess = int(input("Guess the computers number 1, 2, 3: "))
